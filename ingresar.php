@@ -1,36 +1,58 @@
 <?php
+
+# try{
+#     $mysqli=new mysqli("localhost","root","","jess"); 
+     #$mysqli=new mysqli("localhost","root","","beleki"); 
+#     echo 'Conexion realizada';
+#    }            
+#catch (PDOException $ex) {
+#       echo $ex->getMessage();
+#       exit;
+#    }
  
- try{
-     $conn = new PDO('mysql:host=nombredelservidor;dbname=basededatos','usuario','password');
-     echo 'Conexion realizada';
-    }            
-catch (PDOException $ex) {
-       echo $ex->getMessage();
-       exit;
-    }
- 
-/* @var $_POST type */
 $nombre= $_POST["txtusuario"];
-$pass= $_POST["txtusuario"];
+$pass= $_POST["txtpassword"];
 
- 
- $query=("SELECT UsuarioLog,PassLog FROM `Login` "
-         . "WHERE `UsuarioLog`='".mysql_real_escape_string($nombre)."' and "
-         . "`PassLog`='".mysql_real_escape_string($pass)."'"); 
+$users = [
+    "user1" => "pass1",
+    "user2" => "2pass2",
+];
 
-$rs= mysql_query($query); 
-$row=mysql_fetch_object($rs); 
-$nr = mysql_num_rows($rs);
+  if(!empty($nombre)){
+        if( array_key_exists($nombre, $users)  ){
+                $tmp_name = array_search($pass, $users);
+                if($tmp_name==$nombre){
+                    header("Location: ingresar.html");
+                }else{
+                    header("Location: login.html");
+                    exit();
+                }
+        }else{
+                header("Location: login.html");
+                exit();
+        }
+  }else{
+        header("Location: login.html");
+        exit();
+  }
 
 
-if($nr == 1){ 
-   
-echo 'No ingreso'; 
-} 
+# $sql=("SELECT Username,Password FROM 'usuarios' "
+#         . "WHERE 'Username'='".mysqli_real_escape_string($mysqli,$nombre)."' and "
+#         . "'Password'='".mysqli_real_escape_string($mysqli,$pass)."'"); 
 
-else if($nr == 0) {    
-     
-     header("Location:Donitas.html"); 
-}   
+#  $sqlResult=$mysqli->query($sql);
+#  $row = $sqlResult->num_rows;
 
+#  if(!empty($row)){
+#        if( $row['Password']==$pass ){
+#            header("Location: Donitas.html");
+#        }else{
+#            header("Location: login.html");
+#            exit();
+#        }
+#  }else{
+#        header("Location: SalaDePrensa.html");
+#        exit();
+#  }
 ?>
