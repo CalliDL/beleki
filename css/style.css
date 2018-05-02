@@ -45,7 +45,7 @@ a {
   font-weight: 800;
   color: #fff;
   padding: 15px 45px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .btn:hover {
@@ -58,13 +58,29 @@ a {
 }
 
 .btn-ghost {
-  border: 3px solid #fff;
-  background-color: transparent;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  color: #000000;
+  border: 3px solid #000000;
+  background-color: #fff;
+  
 }
 
 .btn-ghost:hover {
-  background-color: #fff;
+  background-color: #000000;
   color: #fff;
+}
+
+.btn-ghost-2 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  color: #000000;
+  border: 2px solid #000000;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.btn-ghost-2:hover {
+  color: #fff;
+  background-color: #000000;
 }
 
 section {
