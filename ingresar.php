@@ -23,11 +23,12 @@ $users = [
                 $tmp_name = array_search($pass, $users);
                 if($tmp_name==$nombre){
 
-
-<!DOCTYPE html>
-<html lang="en">
+$result = '';
+$result .='
+<html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Pragma" content="no-cache">
   <title>Socios</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <link href="img/favicon.ico" rel="icon">
@@ -83,10 +84,6 @@ $users = [
       <h2 align="left">
         Bienvenido	
       </h2>
-      <p align="left">
-       </br>
-       A continuacion se muestra el PDF ...
-      </p>
     </div>
 
     </br>
@@ -137,7 +134,9 @@ $users = [
   <script src="js/custom.js"></script>
   <script src="contactform/contactform.js"></script>
 </body>
-</html>
+</html>';
+echo $result;
+die();
 
 
                     #header("Location: ingresar.html");
